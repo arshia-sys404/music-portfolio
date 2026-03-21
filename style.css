@@ -1,71 +1,101 @@
-/* Neon Theme CSS - No Beats */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { 
-    background: linear-gradient(to bottom, #000 0%, #1a0a2e 50%, #000 100%); /* Black with purple gradient */
-    color: #fff; 
-    font-family: 'Courier New', monospace; 
-    overflow-x: hidden;
-    box-shadow: 
-        0 0 50px #9932cc, 
-        inset 0 0 50px rgba(153, 50, 204, 0.1); /* Purple neon edges and inner glow for computer screen effect */
-    min-height: 100vh;
-    position: relative;
-}
-.neon-glow { 
-    text-shadow: 0 0 10px #9932cc, 0 0 20px #9932cc, 0 0 30px #9932cc, 0 0 40px #9932cc; /* Purple neon */
-    box-shadow: 0 0 20px #9932cc, inset 0 0 20px #9932cc;
-}
-h1.neon-glow { 
-    text-shadow: 
-        0 0 10px #ffffff, 
-        0 0 20px #ffffff, 
-        0 0 30px #ffffff, 
-        0 0 40px #ffffff,
-        0 0 50px #ffffff; /* Shining white neon for name */
-    color: #ffffff;
-    animation: shine 2s ease-in-out infinite alternate;
-}
-.neon-purple { 
-    text-shadow: 0 0 10px #9932cc, 0 0 20px #9932cc, 0 0 30px #9932cc;
-    box-shadow: 0 0 20px #9932cc;
-}
-h1.neon-glow { font-size: 4rem; margin-bottom: 1rem; }
-.subtitle { font-size: 1.5rem; color: #9932cc; margin-bottom: 2rem; }
-nav { position: fixed; top: 0; width: 100%; background: rgba(0,0,0,0.9); z-index: 1000; }
-nav ul { display: flex; justify-content: center; list-style: none; }
-nav li { margin: 0 1rem; }
-nav a { color: #9932cc; text-decoration: none; font-size: 1.2rem; transition: all 0.3s; }
-nav a:hover { text-shadow: 0 0 10px #9932cc; }
-section { padding: 5rem 2rem; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; }
-#education, #skills { background: rgba(255,0,0,0.05); }
-.skills-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; text-align: center; }
-.skill { padding: 2rem; border: 2px solid #9932cc; border-radius: 10px; transition: all 0.3s; }
-.skill:hover { box-shadow: 0 0 30px #9932cc; transform: scale(1.05); }
-input, button, textarea { padding: 0.8rem; margin: 0.5rem; border: 1px solid #9932cc; background: #000; color: #fff; border-radius: 5px; font-family: inherit; }
-button { background: #9932cc; cursor: pointer; transition: all 0.3s; border: none; }
-button:hover { box-shadow: 0 0 20px #9932cc; transform: scale(1.05); }
-#contact form { max-width: 500px; }
-#contact-feedback { margin-top: 1rem; font-weight: bold; }
-@media (max-width: 768px) { 
-    h1 { font-size: 2.5rem; } 
-    section { padding: 3rem 1rem; }
-    nav ul { flex-direction: column; }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@keyframes shine {
-    0% {
-        text-shadow: 
-            0 0 5px #ffffff, 
-            0 0 10px #ffffff, 
-            0 0 15px #ffffff;
-    }
-    100% {
-        text-shadow: 
-            0 0 20px #ffffff, 
-            0 0 30px #ffffff, 
-            0 0 40px #ffffff,
-            0 0 50px #ffffff,
-            0 0 60px #ffffff;
-    }
+body {
+  background: #000; /* Black base */
+  background-image: radial-gradient(circle at 25% 25%, #4b0082 0%, transparent 50%), radial-gradient(circle at 75% 75%, #8a2be2 0%, transparent 50%); /* Purple spots, no gradient flow */
+  color: #fff;
+  font-family: 'Courier New', monospace;
+  overflow-x: hidden;
+  min-height: 100vh;
+  box-shadow: 
+    0 0 50px #fff,
+    0 0 100px #fff,
+    0 0 150px #fff; /* Page outline neon white */
 }
 
+section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 2rem;
+  margin: 1rem;
+  border-radius: 10px;
+  box-shadow: 
+    0 0 30px #fff,
+    inset 0 0 30px rgba(255,255,255,0.2),
+    0 0 60px #fff; /* Sections highlighted beaming neon white */
+  text-align: center;
+}
+
+.neon-glow {
+  text-shadow: 
+    0 0 20px #fff,
+    0 0 40px #fff,
+    0 0 60px #fff;
+  box-shadow: 0 0 40px #fff;
+  color: #fff;
+}
+
+h1 {
+  font-size: 4rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+}
+
+p, li {
+  font-size: 1.5rem;
+  line-height: 1.6;
+}
+
+form {
+  max-width: 500px;
+}
+
+input, textarea, button {
+  display: block;
+  width: 100%;
+  margin: 1rem 0;
+  padding: 1rem;
+  font-family: inherit;
+  border: none;
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  border-radius: 5px;
+  font-size: 1.2rem;
+}
+
+button {
+  background: #fff;
+  color: #000;
+  cursor: pointer;
+  font-weight: bold;
+  transition: box-shadow 0.3s;
+}
+
+button:hover {
+  box-shadow: 0 0 20px #fff;
+}
+
+.skills-list {
+  list-style: none;
+  padding: 0;
+}
+
+.skills-list li {
+  font-size: 2rem;
+  margin: 1rem 0;
+}
+
+@media (max-width: 768px) {
+  h1 { font-size: 2.5rem; }
+  h2 { font-size: 2rem; }
+  section { padding: 2rem 1rem; }
+}

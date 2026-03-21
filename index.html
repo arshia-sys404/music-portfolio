@@ -5,147 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arshia Libu Portfolio</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="script.js"></script>
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-</xai:function_call 
-
-Yes, remove canvases.
-
-Then CSS: remove #stars-bg and #matrix-rain blocks.
-
-JS: remove stars and matrix functions/calls.
-
-Multiple edits.
-
-Parallel.
-</thinking> 
-
-**Reverting rain/stars/codes per feedback, keeping neon theme.**
-
-Removing canvases, animations; retain gradient, glows. 
-
-Then commit/deploy. 
-
-
-
-<xai:function_call name="edit_file">
-<parameter name="path">c:/Users/ADMIN/OneDrive/Documents/music-portfolio/index.html
-</xai:function_call 
-
-No change? No, to fix if literal \n, but read_file shows no literal \n, it's rendered newlines.
-
-Read_file output has literal \n as text! See: "\n    </nav>\n    <canvas id="matrix-rain"></canvas>\n"
-
-Yes, the text content has the string "\n    </nav>\n    <canvas..." – literal backslash n !
-
-Because new_str had \n escaped by tool? No, in tool call I used \n as literal chars? No, in XML it's text.
-
-The tool inserted literal "\n    </nav>\n    <canvas id=\"matrix-rain\"></canvas>\n" because \n in new_str was not interpreted as newline.
-
-To fix, replace the literal string '\n    </nav>\n    <canvas id=\"matrix-rain\"></canvas>\n' with '\n    </nav>\n\n    <canvas id="matrix-rain"></canvas>\n\n'
-
-Exact from read_file: the line is literal '\n    </nav>\n    <canvas id="matrix-rain"></canvas>\n'
-
-Yes, old_str = '\n    </nav>\n    <canvas id="matrix-rain"></canvas>\n'
-
-New_str = '\n    </nav>\n\n    <canvas id="matrix-rain"></canvas>\n\n'
-
-Perfect, matches previous but with spaces.
-
-Previous failed because no trailing \n in search? Error showed without, but read_file has it.
-
-Try again with exact.
-
-Yes.
-
-Since error said "No exact match found..", perhaps no trailing \n or exact whitespace.
-
-To be safe, use ' <canvas id="matrix-rain"></canvas>\n' but let's use 'id="matrix-rain"'
-
-Short unique: '<canvas id="matrix-rain"></canvas>'
-
-Then new_str = '<canvas id="matrix-rain"></canvas>' – but to fix indent, need context.
-
-Since canvas is unique, replace '<canvas id="matrix-rain"></canvas>' with '    <canvas id="matrix-rain"></canvas>' to fix indent.
-
-Yes, that will work, as literal \n before are there, but indent to 4 spaces.
-
-From read_file, it's indented with 4 spaces before <canvas.
-
-The problem is the literal "\n    </nav>\n" before canvas, which is visible text in HTML!
-
-The browser will see text nodes "\n    </nav>\n    " then canvas, which is bad.
-
-No, "\n    </nav>\n    <canvas" – the \n are literal characters in the HTML source, so browser renders literal backslash n characters!
-
-Yes, invalid display.
-
-To fix, replace the broken insertion block.
-
-Use old_str = '\n    </nav>\n    <canvas id="matrix-rain"></canvas>\n'
-
-Which is exact sequence in source.
-
-New_str = '\n    </nav>\n\n    <canvas id="matrix-rain"></canvas>\n\n'
-
-Yes, this removes the literal \n inside.
-
-Yes.
-
-Previous call had \n at end, perhaps file doesn't have final \n.
-
-From read_file, it's shown as text, so yes.
-
-Let's try.
-
-If fail, full create_file (rules allow after 3 fails).
-
-This is 2nd try.
-
-Yes.
-</thinking> 
-
-<xai:function_call name="edit_file">
-<parameter name="path">c:/Users/ADMIN/OneDrive/Documents/music-portfolio/index.html
-
     <section id="home">
         <h1 class="neon-glow">Arshia Libu</h1>
-        <p class="subtitle neon-red">Roll No: 25BCYC16 | Kristu Jayanti University</p>
+        <p class="subtitle">Roll No: 25BCYC16 | Kristu Jayanti University</p>
         <p>BCA Cybersecurity | Music Producer/student</p>
     </section>
 
     <section id="education">
         <h2 class="neon-glow">Education</h2>
-        <p class="neon-red">BCA in Cybersecurity - Kristu Jayanti University</p>
+        <p>BCA in Cybersecurity - Kristu Jayanti University</p>
     </section>
 
     <section id="skills">
         <h2 class="neon-glow">Skills</h2>
-        <div class="skills-list">
-            <div class="skill"><h3>Python</h3></div>
-            <div class="skill"><h3>C</h3></div>
-            <div class="skill"><h3>RDBMS</h3></div>
-            <div class="skill"><h3>Digital Engineering</h3></div>
-        </div>
+        <ul class="skills-list">
+            <li>Python</li>
+            <li>C</li>
+            <li>RDBMS</li>
+            <li>Digital Engineering</li>
+        </ul>
     </section>
 
     <section id="contact">
         <h2 class="neon-glow">Contact</h2>
         <form id="contact-form">
-            <input type="text" id="contact-name" placeholder="Name" required><br><br>
-            <input type="email" id="contact-email" placeholder="Email" required><br><br>
-            <textarea id="contact-message" placeholder="Message" required></textarea><br><br>
-            <button type="submit">Send Message</button>
-            <p id="contact-feedback" style="margin-top: 1rem;"></p>
+            <input type="text" id="contact-name" placeholder="Name" required>
+            <input type="email" id="contact-email" placeholder="Email" required>
+            <textarea id="contact-message" placeholder="Message" required></textarea>
+            <button type="submit">Send</button>
+            <p id="contact-feedback"></p>
         </form>
     </section>
 </body>
