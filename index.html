@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#portfolio">Beats</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="home">
+        <h1 class="neon-glow">Arshia Libu</h1>
+        <p class="subtitle neon-red">Roll No: 25BCYC16 | Kristu Jayanti University</p>
+        <p>BCA Cybersecurity | Music Producer</p>
+    </section>
+
+    <section id="education">
+        <h2 class="neon-glow">Education</h2>
+        <p class="neon-red">BCA in Cybersecurity - Kristu Jayanti University</p>
+    </section>
+
+    <section id="skills">
+        <h2 class="neon-glow">Skills</h2>
+        <div class="skills-list">
+            <div class="skill"><h3>Python</h3></div>
+            <div class="skill"><h3>C</h3></div>
+            <div class="skill"><h3>RDBMS</h3></div>
+            <div class="skill"><h3>Digital Engineering</h3></div>
+        </div>
+    </section>
+
+    <section id="portfolio">
+        <h2 class="neon-glow">My Beats</h2>
+        <form id="upload-form">
+            <input type="text" id="beat-name" placeholder="Beat Name">
+            <input type="text" id="beat-desc" placeholder="Description">
+            <input type="file" id="beat-file" accept="audio/*">
+            <button type="submit">Upload Beat</button>
+        </form>
+        <div id="beats-list" class="beats-grid"></div>
+    </section>
+
+    <section id="contact">
+        <h2 class="neon-glow">Contact</h2>
+        <form>
+            <input type="text" placeholder="Name"><br>
+            <input type="email" placeholder="Email"><br>
+            <textarea placeholder="Message"></textarea><br>
+            <button type="submit">Send</button>
+        </form>
+    </section>
+
+    <div id="modal" class="modal">
+        <audio id="audio-player" controls></audio>
+        <button onclick="closeModal()">Close</button>
+    </div>
+    <script defer src="script.js"></script>
+</body>
+</html>
+
+3333333336

@@ -1,0 +1,49 @@
+/* Neon Theme CSS */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { 
+    background: #000; 
+    color: #fff; 
+    font-family: 'Courier New', monospace; 
+    overflow-x: hidden;
+}
+.neon-glow { 
+    text-shadow: 0 0 10px #ff1493, 0 0 20px #ff1493, 0 0 30px #ff1493;
+    box-shadow: 0 0 20px #ff1493, inset 0 0 20px #ff1493;
+}
+.neon-red { 
+    text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000;
+    box-shadow: 0 0 20px #ff0000;
+}
+header { 
+    height: 100vh; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    text-align: center; 
+    background: radial-gradient(circle, rgba(255,20,147,0.1) 0%, transparent 70%);
+}
+h1.neon-glow { font-size: 4rem; margin-bottom: 1rem; }
+.subtitle { font-size: 1.5rem; color: #ff1493; margin-bottom: 2rem; }
+nav { position: fixed; top: 0; width: 100%; background: rgba(0,0,0,0.9); z-index: 1000; }
+nav ul { display: flex; justify-content: center; list-style: none; }
+nav li { margin: 0 1rem; }
+nav a { color: #ff1493; text-decoration: none; font-size: 1.2rem; transition: all 0.3s; }
+nav a:hover { text-shadow: 0 0 10px #ff1493; }
+section { padding: 5rem 2rem; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+#education, #skills { background: rgba(255,0,0,0.05); }
+.skills-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; text-align: center; }
+.skill { padding: 2rem; border: 2px solid #ff1493; border-radius: 10px; transition: all 0.3s; }
+.skill:hover { box-shadow: 0 0 30px #ff1493; transform: scale(1.05); }
+.beats-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2rem; max-width: 1200px; }
+.beat-card { background: rgba(255,20,147,0.1); padding: 1.5rem; border-radius: 10px; border: 2px solid #ff0000; cursor: pointer; transition: all 0.3s; }
+.beat-card:hover { box-shadow: 0 0 30px #ff0000; }
+#upload-form { background: rgba(255,0,0,0.2); padding: 2rem; border-radius: 10px; margin-bottom: 2rem; }
+input, button { padding: 0.5rem; margin: 0.5rem; border: 1px solid #ff1493; background: #000; color: #fff; }
+button { background: #ff1493; cursor: pointer; transition: all 0.3s; }
+button:hover { box-shadow: 0 0 20px #ff1493; }
+.modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 2000; }
+.modal.active { display: flex; justify-content: center; align-items: center; }
+audio { width: 80%; }
+#contact form { max-width: 500px; }
+@media (max-width: 768px) { h1 { font-size: 2.5rem; } section { padding: 3rem 1rem; } }
