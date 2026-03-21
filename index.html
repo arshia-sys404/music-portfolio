@@ -1,67 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arshia Music Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arshia Libu - BCA Cybersecurity Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#skills">Skills</a></li>
+  <!-- Navigation -->
+  <nav class="neon-nav">
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
-            <!-- Beats removed -->
-
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-
-    <section id="home">
-        <h1 class="neon-glow">Arshia Libu</h1>
-        <p class="subtitle neon-red">Roll No: 25BCYC16 | Kristu Jayanti University</p>
-        <p>BCA Cybersecurity | Music Producer</p>
-    </section>
-
-    <section id="education">
-        <h2 class="neon-glow">Education</h2>
-        <p class="neon-red">BCA in Cybersecurity - Kristu Jayanti University</p>
-    </section>
-
-    <section id="skills">
-        <h2 class="neon-glow">Skills</h2>
-        <div class="skills-list">
-            <div class="skill"><h3>Python</h3></div>
-            <div class="skill"><h3>C</h3></div>
-            <div class="skill"><h3>RDBMS</h3></div>
-            <div class="skill"><h3>Digital Engineering</h3></div>
-        </div>
-    </section>
-
-
-
-
-    <section id="contact">
-        <h2 class="neon-glow">Contact</h2>
-        <form id="contact-form">
-            <input type="text" id="contact-name" placeholder="Name" required><br>
-            <input type="email" id="contact-email" placeholder="Email" required><br>
-            <textarea id="contact-message" placeholder="Message" required></textarea><br>
-            <button type="submit">Send</button>
-        </form>
-        <p id="contact-feedback"></p>
-    </section>
-
-    <div id="modal" class="modal">
-        <audio id="audio-player" controls></audio>
-        <button onclick="closeModal()">Close</button>
+  <!-- Section 1: Home -->
+  <section id="home" class="neon-section">
+    <div class="content">
+      <h1>Arshia Libu</h1>
+      <p>Roll No: 25BCYC16</p>
+      <p>Kristu Jayanti University</p>
+      <p>BCA Cybersecurity</p>
     </div>
+  </section>
 
+  <!-- Section 2: Education -->
+  <section id="education" class="neon-section">
+    <div class="content">
+      <h2>Education</h2>
+      <div class="edu-item">
+        <h3>High School</h3>
+        <p>India International School</p>
+      </div>
+      <div class="edu-item">
+        <h3>University</h3>
+        <p>Kristu Jayanti University</p>
+      </div>
+    </div>
+  </section>
 
-    <script src="script.js"></script>
+  <!-- Section 3: Skills -->
+  <section id="skills" class="neon-section">
+    <div class="content">
+      <h2>Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-item">Python</div>
+        <div class="skill-item">C</div>
+        <div class="skill-item">RDBMS</div>
+        <div class="skill-item">Digital Engineering</div>
+      </div>
+    </div>
+  </section>
 
+  <!-- Section 4: Contact -->
+  <section id="contact" class="neon-section">
+    <div class="content">
+      <h2>Contact</h2>
+      <form id="contact-form">
+        <input type="text" id="name" placeholder="Name" required>
+        <input type="email" id="email" placeholder="Email" required>
+        <textarea id="message" placeholder="Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+      <div id="form-feedback"></div>
+    </div>
+  </section>
+
+  <!-- Feedback Popup Modal -->
+  <div id="feedback-modal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <div id="modal-icon">✅</div>
+      <p id="modal-text"></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
