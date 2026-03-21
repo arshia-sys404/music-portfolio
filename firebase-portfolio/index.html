@@ -2,13 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <title>Arshia Libu Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Arshia Music Portfolio - Fresh</title>
   <link rel="stylesheet" href="style.css">
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
-  <canvas id="matrix-canvas"></canvas>
+  <canvas id="matrix-bg"></canvas>
   
   <nav>
     <ul>
@@ -20,17 +19,18 @@
   </nav>
 
   <section id="home">
-    <h1>Arshia Libu</h1>
-    <p>Roll No: 25BCYC16 | BCA Cybersecurity | Kristu Jayanti University</p>
+    <h1 class="neon">Arshia Libu</h1>
+    <p class="subtitle">Roll No: 25BCYC16 | BCA Cybersecurity | Kristu Jayanti University</p>
+    <p>Music Producer & Developer</p>
   </section>
 
   <section id="education">
-    <h2>Education</h2>
+    <h2 class="neon">Education</h2>
     <p>BCA Cybersecurity - Kristu Jayanti University</p>
   </section>
 
   <section id="skills">
-    <h2>Skills</h2>
+    <h2 class="neon">Skills</h2>
     <div class="skills-grid">
       <div class="skill">Python</div>
       <div class="skill">C</div>
@@ -40,16 +40,16 @@
   </section>
 
   <section id="contact">
-    <h2>Contact</h2>
+    <h2 class="neon">Contact</h2>
     <form id="contactForm">
-      <input type="text" id="name" placeholder="Name" required>
-      <input type="email" id="email" placeholder="Email" required>
-      <textarea id="message" placeholder="Message" required></textarea>
+      <input type="text" id="name" placeholder="Your Name" required>
+      <input type="email" id="email" placeholder="Your Email" required>
+      <textarea id="message" placeholder="Your Message" required></textarea>
       <button type="submit">Send Message</button>
     </form>
     <div id="status"></div>
   </section>
 
-  <script src="script.js" defer></script>
+  <script src="script.js"></script>
 </body>
 </html>

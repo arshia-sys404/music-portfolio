@@ -1,0 +1,75 @@
+/* Dark neon theme */
+
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #0b0b0b, #1b0033);
+  color: #fff;
+}
+
+.section {
+  padding: 50px 20px;
+  max-width: 800px;
+  margin: 50px auto;
+  border-radius: 10px;
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.neon-outline {
+  border: 2px solid #fff;
+  box-shadow: 0 0 20px #fff, 0 0 40px #ff00ff, 0 0 60px #ff00ff;
+}
+
+.neon-outline h1, .neon-outline h2, .neon-outline p {
+  color: #fff;
+  text-shadow: 0 0 5px #fff, 0 0 10px #ff00ff, 0 0 20px #ff00ff;
+}
+
+.skill-item {
+  display: inline-block;
+  margin: 10px;
+  padding: 10px 15px;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.skill-item:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px #fff, 0 0 20px #ff00ff;
+}
+
+#contact-form input,
+#contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #fff;
+  background: transparent;
+  color: #fff;
+  border-radius: 5px;
+  outline: none;
+}
+
+#contact-form input::placeholder,
+#contact-form textarea::placeholder {
+  color: #fff;
+}
+
+#contact-form button {
+  padding: 10px 20px;
+  border: 1px solid #fff;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: all 0.2s;
+}
+
+#contact-form button:hover {
+  background: #ff00ff;
+  color: #000;
+  box-shadow: 0 0 10px #fff, 0 0 20px #ff00ff;
+}
