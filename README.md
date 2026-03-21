@@ -1,1 +1,16 @@
-# Arshia Libu Portfolio\n\nCybersecurity student portfolio with neon theme & Supabase contact form.\n\n## Features\n- Responsive neon cyberpunk design\n- Smooth scroll navigation\n- Contact form (Supabase database)\n\n## Quick Start\n1. Open `index.html` in browser\n\n## Supabase Setup (Contacts Only)\nProject: https://llocnfzgmqogfmrqobod.supabase.co\n\n**SQL** (SQL Editor):\n```sql\ncreate table if not exists contacts (\n  id uuid primary key default uuid_generate_v4(),\n  name text not null,\n  email text not null,\n  message text not null,\n  created_at timestamptz default now()\n);\n\n-- Allow anon inserts (test)\nalter table contacts disable row level security;\n-- Or policy: create policy \"Public insert\" on contacts for insert with check (true);\n```\n\nKeys in script.js (public anon).\n\n## Deploy\nGitHub: https://github.com/arshia-sys404/music-portfolio\n- Pages: Settings > Pages > Deploy 'main'\n- Vercel/Netlify: Connect repo + SUPABASE_URL/ANON_KEY env vars\n\n## Local Test\nBrowser `index.html` → submit contact → check feedback + Supabase table.\n\nRoll No: 25BCYC16 | Kristu Jayanti University
+# Arshia Portfolio - Supabase Contact Form\n\n## 🎯 **Contact Form Works** (after RLS fix)\n\nRepo: https://github.com/arshia-sys444/music-portfolio\n\n## **FIX RLS ERROR** (your exact error)\n\n**Supabase Dashboard → contacts table → RLS tab**:\n\n### Option 1 (EASIEST - Test)\n```sql
+ALTER TABLE contacts DISABLE ROW LEVEL SECURITY;
+```\n\n### Option 2 (Production)\n```sql
+-- Enable RLS + policy for anon
+ALTER TABLE contacts ENABLE ROW LEVEL SECURITY;
+DROP POLICY IF EXISTS \"Allow public insert\" ON contacts;
+CREATE POLICY \"Allow public insert\" ON contacts 
+FOR INSERT TO anon 
+WITH CHECK (true);
+```\n\nRun in **SQL Editor** → Refresh table.\n\n## Test Flow\n1. Reload index.html\n2. Fill form → Send\n3. Green \"✅ Message sent\"\n4. **Table Editor > contacts** → see data!\n\n## Console Debug\nF12 → Console shows all (Supabase response/errors).\n\n**Table first** (if missing):\n```sql
+create table contacts (
+  id uuid default uuid_generate_v4() primary key,
+  name text, email text, message text, 
+  created_at timestamptz default now()
+);
+```\n\nDeploy: GitHub Pages > main branch.

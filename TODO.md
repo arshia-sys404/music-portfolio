@@ -1,1 +1,9 @@
-# Arshia Portfolio TODO (Beats Removed)\n\n## Status\n- [x] Remove beats sections (HTML/JS/CSS)\n- [x] Keep contact form (Supabase)\n- [x] GitHub repo: https://github.com/arshia-sys404/music-portfolio\n\n## Next\n1. [ ] Supabase: Run contacts SQL (README.md)\n2. [ ] Test contact form\n3. [ ] Deploy GitHub Pages/Vercel\n\nClean: Home/Education/Skills/Contact only.
+# Visual CSS Updates: Black BG + Purple Matrix Rain + White Neon Text + Purple Computer Edges
+
+## Steps:
+- [x] 1. Create TODO.md (tracking)
+- [x] 2. Update index.html: Add matrix canvas element
+- [x] 3. Update style.css: Black gradient BG, purple neon edges, white neon name, purple glows, canvas styling
+- [x] 4. Update script.js: Add purple matrix rain animation
+- [x] 5. Test visuals (live-server or open index.html)
+- [x] 6. Complete task
