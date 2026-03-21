@@ -6,7 +6,7 @@
 - [x] 3. Create script.js (interactivity, Supabase form, popup feedback)
 - [x] 4. Create README.md (setup, test, deploy)
 - [x] 5. .gitignore update
-- [ ] 6. Git commit & push
-- [ ] 7. GitHub Pages setup instructions
+- [x] 6. Git commit & push
+- [x] 7. GitHub Pages setup instructions
 
 Step 1 complete.

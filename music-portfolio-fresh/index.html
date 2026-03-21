@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arshia Music Portfolio - Fresh</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+  <canvas id="matrix-canvas"></canvas>
+  
+  <nav>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section id="home">
+    <h1>Arshia Libu</h1>
+    <p>Roll No: 25BCYC16 | BCA Cybersecurity | Kristu Jayanti University</p>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <p>BCA Cybersecurity - Kristu Jayanti University</p>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <div class="skill">Python</div>
+      <div class="skill">C</div>
+      <div class="skill">RDBMS</div>
+      <div class="skill">Digital Engineering</div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <form id="contactForm">
+      <input type="text" id="name" placeholder="Name" required>
+      <input type="email" id="email" placeholder="Email" required>
+      <textarea id="message" placeholder="Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+    <div id="status"></div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

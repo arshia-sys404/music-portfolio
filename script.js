@@ -1,120 +1,98 @@
-// Portfolio Interactivity + Supabase Contact Form
-console.log('Portfolio JS loaded...');
+// Portfolio Interactivity + Supabase Contact Form - ULTIMATE FIX
+console.log('Portfolio JS v3 - FIXED');
 
 // Supabase config
 const SUPABASE_URL = 'https://llocnfzgmqogfmrqobod.supabase.co';
 const SUPABASE_ANON_KEY = 'sb_publishable_qQmXqJ_1fkn8plW3E2awzw_2E8yD2sx';
 
+let supabase;
+
 document.addEventListener('DOMContentLoaded', () => {
-  console.log('DOM ready - initializing...');
+  console.log('DOM loaded');
   
-  // Supabase client
-  const { createClient } = supabase;
-  const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-  console.log('Supabase ready');
+  // Wait for Supabase global from CDN
+  const supabaseCheck = setInterval(() => {
+    if (typeof window.supabase !== 'undefined') {
+      clearInterval(supabaseCheck);
+      supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+      console.log('✅ Supabase client ready!');
+      initApp();
+    }
+  }, 100);
   
-  // Smooth scrolling
-  document.querySelectorAll('a[href^=\"#"]').forEach(link => {
-    link.addEventListener('click', (e) => {
+  setTimeout(() => {
+    clearInterval(supabaseCheck);
+    console.error('❌ Supabase CDN timeout');
+  }, 5000);
+});
+
+function initApp() {
+  // Smooth scroll
+  document.querySelectorAll('a[href^=\"#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
       e.preventDefault();
-      const target = document.querySelector(link.getAttribute('href'));
-      target.scrollIntoView({ behavior: 'smooth' });
+      document.querySelector(this.getAttribute('href')).scrollIntoView({
+        behavior: 'smooth'
+      });
     });
   });
 
-  // Contact form
+  // Contact form - SIMPLIFIED
   const form = document.getElementById('contact-form');
   if (form) {
-    form.addEventListener('submit', async (e) => {
+    form.addEventListener('submit', async function(e) {
       e.preventDefault();
+      console.log('Form submit triggered');
       
       const name = document.getElementById('name').value.trim();
       const email = document.getElementById('email').value.trim();
       const message = document.getElementById('message').value.trim();
       
       if (!name || !email || !message) {
-        showModal('error', 'Please fill all fields!');
+        alert('Please fill all fields!');
         return;
       }
       
-      // Show sending state
-      const button = form.querySelector('button');
-      const originalText = button.textContent;
-      button.textContent = 'Sending...';
-      button.disabled = true;
+      const btn = form.querySelector('button');
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
       
       try {
+        console.log('Attempting insert:', {name, email});
         const { data, error } = await supabase
           .from('contacts')
-          .insert([{ name, email, message }]);
+          .insert([{
+            name: name,
+            email: email,
+            message: message
+          }]);
           
         if (error) throw error;
         
+        console.log('SUCCESS DATA:', data);
         form.reset();
-        showModal('success', `✅ Thanks ${name}! Your message has been saved to database.`);
-        console.log('Contact saved:', data);
+        alert(`✅ Success! "${name}" message saved to Supabase. Check Table Editor.`);
       } catch (error) {
-        showModal('error', `Error: ${error.message}`);
-        console.error('Supabase error:', error);
+        console.error('INSERT ERROR:', error);
+        alert(`❌ Error: ${error.message}`);
       } finally {
-        button.textContent = originalText;
-        button.disabled = false;
+        btn.disabled = false;
+        btn.textContent = 'Send Message';
       }
     });
+    console.log('Form ready');
   }
 
-  // Modal functions
-  function showModal(type, message) {
-    const modal = document.getElementById('feedback-modal');
-    const icon = document.getElementById('modal-icon');
-    const text = document.getElementById('modal-text');
-    const closeBtn = document.querySelector('.close-btn');
-    
-    icon.textContent = type === 'success' ? '✅' : '❌';
-    text.textContent = message;
-    modal.classList.remove('hidden');
-    modal.classList.add('show', type);
-    
-    // Auto close
-    setTimeout(() => hideModal(modal), 5000);
-    
-    closeBtn.onclick = () => hideModal(modal);
-    modal.onclick = (e) => {
-      if (e.target === modal) hideModal(modal);
-    };
-  }
-  
-  function hideModal(modal) {
-    modal.classList.remove('show', 'success', 'error');
-    modal.classList.add('hidden');
-  }
-
-  // Skill hover animations
-  document.querySelectorAll('.skill-item').forEach(skill => {
-    skill.addEventListener('mouseenter', () => {
-      skill.style.transform = 'scale(1.1) rotate(5deg)';
-    });
-    skill.addEventListener('mouseleave', () => {
-      skill.style.transform = 'scale(1) rotate(0deg)';
-    });
+  // Skills hover
+  document.querySelectorAll('.skill-item').forEach(item => {
+    item.addEventListener('mouseenter', () => item.style.transform = 'scale(1.05)');
+    item.addEventListener('mouseleave', () => item.style.transform = 'scale(1)');
   });
 
-  // Intersection Observer for section animations
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = '1';
-        entry.target.style.transform = 'translateY(0)';
-      }
-    });
-  }, { threshold: 0.1 });
+  console.log('🎉 App initialized!');
+}
 
-  document.querySelectorAll('.neon-section').forEach(section => {
-    section.style.opacity = '0';
-    section.style.transform = 'translateY(50px)';
-    section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-    observer.observe(section);
-  });
-  
-  console.log('Portfolio fully interactive');
-});
+// Polyfill for older browsers
+if (!window.supabase) {
+  console.warn('Supabase CDN not loaded - check index.html script tag');
+}
