@@ -3,7 +3,7 @@ const SUPABASE_URL = 'https://llocnfzgmqogfmrqobod.supabase.co';
 const SUPABASE_ANON_KEY = 'sb_publishable_qQmXqJ_1fkn8plW3E2awzw_2E8yD2sx';
 
 // Global supabase from CDN
-const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 console.log('Supabase ready:', supabase);
 
