@@ -1,14 +1,1 @@
-# Music Portfolio TODO
-
-## Plan Steps (Supabase Backend, Neon Theme)
-- [x] 1. Create index.html with HTML structure (hero, education, skills, beats portfolio/upload, contact)
-- [x] 2. Add CSS styling (black bg, neon pink/red glows, responsive)
-- [x] 3. Add JavaScript (smooth scroll, Supabase init/upload/list beats, audio modal) - separated to script.js
-- [x] 4. Supabase connected (key updated in script.js)
-- [x] Separate CSS/JS files (style.css, script.js)
-- [ ] 5. Test locally (Live Server)
-- [ ] 6. Deploy optional
-
-Completed: Frontend + Supabase connection.
-
-Progress: Backend setup → Test → Deploy.
+# Music Portfolio - Connect to Supabase & GitHub\n\n## Approved Plan Steps\n1. [ ] Fix contact form IDs in index.html\n2. [ ] Update TODO.md with progress\n3. [ ] Create .gitignore\n4. [ ] Create README.md with setup instructions\n5. [ ] User: Create Supabase tables/bucket (beats, contacts)\n6. [ ] Test locally (upload beat, contact form)\n7. [ ] Git commit/push to GitHub (repo: arshiamusic-portffolio)\n8. [ ] Optional: Deploy to Vercel/Netlify\n\n**Supabase Project**: https://llocnfzgmqogfmrqobod.supabase.co\n**Status**: Frontend fixed, GitHub connected, backend pending user setup.\n\nProgress: Starting file fixes → Backend → Deploy.

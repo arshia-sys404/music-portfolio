@@ -1,11 +1,13 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</title>
+    <title>Arshia Libu Portfolio</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+    <script defer src="script.js"></script>
 </head>
 <body>
     <nav>
@@ -21,7 +23,7 @@
     <section id="home">
         <h1 class="neon-glow">Arshia Libu</h1>
         <p class="subtitle neon-red">Roll No: 25BCYC16 | Kristu Jayanti University</p>
-        <p>BCA Cybersecurity | Music Producer</p>
+        <p>BCA Cybersecurity | Music Producer/student</p>
     </section>
 
     <section id="education">
@@ -42,9 +44,9 @@
     <section id="portfolio">
         <h2 class="neon-glow">My Beats</h2>
         <form id="upload-form">
-            <input type="text" id="beat-name" placeholder="Beat Name">
-            <input type="text" id="beat-desc" placeholder="Description">
-            <input type="file" id="beat-file" accept="audio/*">
+            <input type="text" id="beat-name" placeholder="Beat Name" required>
+            <input type="text" id="beat-desc" placeholder="Description" required>
+            <input type="file" id="beat-file" accept="audio/*" required>
             <button type="submit">Upload Beat</button>
         </form>
         <div id="beats-list" class="beats-grid"></div>
@@ -53,10 +55,11 @@
     <section id="contact">
         <h2 class="neon-glow">Contact</h2>
         <form>
-            <input type="text" placeholder="Name"><br>
-            <input type="email" placeholder="Email"><br>
-            <textarea placeholder="Message"></textarea><br>
+            <input type="text" id="contact-name" placeholder="Name" required><br>
+            <input type="email" id="contact-email" placeholder="Email" required><br>
+            <textarea id="contact-message" placeholder="Message" required></textarea><br>
             <button type="submit">Send</button>
+            <p id="contact-feedback"></p>
         </form>
     </section>
 
@@ -64,8 +67,5 @@
         <audio id="audio-player" controls></audio>
         <button onclick="closeModal()">Close</button>
     </div>
-    <script defer src="script.js"></script>
 </body>
 </html>
-
-3333333336
