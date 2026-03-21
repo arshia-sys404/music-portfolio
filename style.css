@@ -1,101 +1,127 @@
+/* Base reset */
+/* Neon Theme CSS */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+body { 
+    background: #1a002a; /* deep purple/black */
+    color: #fff; 
+    font-family: 'Courier New', monospace; 
+    overflow-x: hidden;
 }
 
-body {
-  background: #000; /* Black base */
-  background-image: radial-gradient(circle at 25% 25%, #4b0082 0%, transparent 50%), radial-gradient(circle at 75% 75%, #8a2be2 0%, transparent 50%); /* Purple spots, no gradient flow */
-  color: #fff;
-  font-family: 'Courier New', monospace;
-  overflow-x: hidden;
-  min-height: 100vh;
-  box-shadow: 
-    0 0 50px #fff,
-    0 0 100px #fff,
-    0 0 150px #fff; /* Page outline neon white */
+/* Navigation */
+nav { 
+    position: fixed; 
+    top: 0; 
+    width: 100%; 
+    background: rgba(0,0,0,0.85); 
+    z-index: 1000; 
+}
+nav ul { display: flex; justify-content: center; list-style: none; }
+nav li { margin: 0 1rem; }
+nav a { 
+    color: #fff; 
+    text-decoration: none; 
+    font-size: 1.2rem; 
+    transition: all 0.3s; 
+    text-shadow: 0 0 8px #fff, 0 0 16px #fff;
+}
+nav a:hover { 
+    text-shadow: 0 0 12px #fff, 0 0 24px #fff; 
 }
 
-section {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 4rem 2rem;
-  margin: 1rem;
-  border-radius: 10px;
-  box-shadow: 
-    0 0 30px #fff,
-    inset 0 0 30px rgba(255,255,255,0.2),
-    0 0 60px #fff; /* Sections highlighted beaming neon white */
-  text-align: center;
+/* Section styling */
+section { 
+    padding: 5rem 2rem; 
+    min-height: 100vh; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    background: rgba(255,255,255,0.05); /* faint overlay for gleam effect */
+    border-radius: 15px;
+    box-shadow: 0 0 30px #fff, 0 0 60px #fff inset;
+    margin: 2rem 1rem;
+    transition: all 0.5s;
+}
+section:hover {
+    box-shadow: 0 0 50px #fff, 0 0 100px #fff inset;
 }
 
-.neon-glow {
-  text-shadow: 
-    0 0 20px #fff,
-    0 0 40px #fff,
-    0 0 60px #fff;
-  box-shadow: 0 0 40px #fff;
-  color: #fff;
+/* Headings */
+h1.neon-glow, h2.neon-glow {
+    color: #fff;
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff;
 }
 
-h1 {
-  font-size: 4rem;
+/* Subtitle */
+.subtitle { 
+    font-size: 1.5rem; 
+    color: #fff; 
+    margin-bottom: 2rem; 
+    text-shadow: 0 0 8px #fff;
 }
 
-h2 {
-  font-size: 2.5rem;
+/* Skills */
+.skills-list { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+    gap: 2rem; 
+    text-align: center; 
+}
+.skill { 
+    padding: 2rem; 
+    border: 2px solid #fff; 
+    border-radius: 10px; 
+    transition: all 0.3s; 
+    box-shadow: 0 0 10px #fff;
+}
+.skill:hover { 
+    box-shadow: 0 0 30px #fff; 
+    transform: scale(1.05); 
 }
 
-p, li {
-  font-size: 1.5rem;
-  line-height: 1.6;
+
+
+/* Contact form */
+#contact form { max-width: 500px; text-align: center; }
+input, button, textarea { 
+    padding: 0.5rem; 
+    margin: 0.5rem; 
+    border: 1px solid #fff; 
+    background: #1a002a; 
+    color: #fff; 
+}
+button { 
+    background: #fff; 
+    color: #1a002a; 
+    cursor: pointer; 
+    transition: all 0.3s; 
+    font-weight: bold;
+}
+button:hover { 
+    box-shadow: 0 0 20px #fff; 
 }
 
-form {
-  max-width: 500px;
-}
+/* Contact form */
+#contact form { max-width: 500px; text-align: center; }
+#contact-feedback { margin-top: 0.5rem; font-weight: bold; color: #fff; }
 
-input, textarea, button {
-  display: block;
-  width: 100%;
-  margin: 1rem 0;
-  padding: 1rem;
-  font-family: inherit;
-  border: none;
-  background: rgba(0,0,0,0.5);
-  color: #fff;
-  border-radius: 5px;
-  font-size: 1.2rem;
+/* Modal */
+.modal { 
+    display: none; 
+    position: fixed; 
+    top: 0; left: 0; 
+    width: 100%; height: 100%; 
+    background: rgba(0,0,0,0.9); 
+    z-index: 2000; 
+    justify-content: center; 
+    align-items: center; 
 }
+.modal.active { display: flex; }
+audio { width: 80%; }
 
-button {
-  background: #fff;
-  color: #000;
-  cursor: pointer;
-  font-weight: bold;
-  transition: box-shadow 0.3s;
-}
-
-button:hover {
-  box-shadow: 0 0 20px #fff;
-}
-
-.skills-list {
-  list-style: none;
-  padding: 0;
-}
-
-.skills-list li {
-  font-size: 2rem;
-  margin: 1rem 0;
-}
-
+/* Responsive */
 @media (max-width: 768px) {
-  h1 { font-size: 2.5rem; }
-  h2 { font-size: 2rem; }
-  section { padding: 2rem 1rem; }
+    h1 { font-size: 2.5rem; }
+    section { padding: 3rem 1rem; }
 }

@@ -3,42 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arshia Libu Portfolio</title>
+    <title>Arshia Music Portfolio</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#skills">Skills</a></li>
+
+            <!-- Beats removed -->
+
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
     <section id="home">
         <h1 class="neon-glow">Arshia Libu</h1>
-        <p class="subtitle">Roll No: 25BCYC16 | Kristu Jayanti University</p>
-        <p>BCA Cybersecurity | Music Producer/student</p>
+        <p class="subtitle neon-red">Roll No: 25BCYC16 | Kristu Jayanti University</p>
+        <p>BCA Cybersecurity | Music Producer</p>
     </section>
 
     <section id="education">
         <h2 class="neon-glow">Education</h2>
-        <p>BCA in Cybersecurity - Kristu Jayanti University</p>
+        <p class="neon-red">BCA in Cybersecurity - Kristu Jayanti University</p>
     </section>
 
     <section id="skills">
         <h2 class="neon-glow">Skills</h2>
-        <ul class="skills-list">
-            <li>Python</li>
-            <li>C</li>
-            <li>RDBMS</li>
-            <li>Digital Engineering</li>
-        </ul>
+        <div class="skills-list">
+            <div class="skill"><h3>Python</h3></div>
+            <div class="skill"><h3>C</h3></div>
+            <div class="skill"><h3>RDBMS</h3></div>
+            <div class="skill"><h3>Digital Engineering</h3></div>
+        </div>
     </section>
+
+
+
 
     <section id="contact">
         <h2 class="neon-glow">Contact</h2>
         <form id="contact-form">
-            <input type="text" id="contact-name" placeholder="Name" required>
-            <input type="email" id="contact-email" placeholder="Email" required>
-            <textarea id="contact-message" placeholder="Message" required></textarea>
-            <button type="submit">Send Message</button>
-            <p id="contact-feedback"></p>
+            <input type="text" id="contact-name" placeholder="Name" required><br>
+            <input type="email" id="contact-email" placeholder="Email" required><br>
+            <textarea id="contact-message" placeholder="Message" required></textarea><br>
+            <button type="submit">Send</button>
         </form>
+        <p id="contact-feedback"></p>
     </section>
 
-    <script type="module" src="script.js"></script>
+    <div id="modal" class="modal">
+        <audio id="audio-player" controls></audio>
+        <button onclick="closeModal()">Close</button>
+    </div>
+
+
+    <script src="script.js"></script>
+
 </body>
 </html>
