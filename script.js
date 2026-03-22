@@ -1,98 +1,87 @@
-// Portfolio Interactivity + Supabase Contact Form - ULTIMATE FIX
-console.log('Portfolio JS v3 - FIXED');
+console.log("🎵 Arshia Portfolio - Firebase version");
 
-// Supabase config
-const SUPABASE_URL = 'https://llocnfzgmqogfmrqobod.supabase.co';
-const SUPABASE_ANON_KEY = 'sb_publishable_qQmXqJ_1fkn8plW3E2awzw_2E8yD2sx';
+// Firebase config
+const firebaseConfig = {
+  apiKey: "AIzaSyDWTqmj8M7GX34hLYIbT57XrH99r0dVRXA",
+  authDomain: "arshia-sys444.firebaseapp.com",
+  projectId: "arshia-sys444",
+  storageBucket: "arshia-sys444.firebasestorage.app",
+  messagingSenderId: "21932612701",
+  appId: "1:21932612701:web:1bbf8749dc385b974601b4",
+  measurementId: "G-HX36S0F9BS"
+};
 
-let supabase;
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
 
-document.addEventListener('DOMContentLoaded', () => {
-  console.log('DOM loaded');
-  
-  // Wait for Supabase global from CDN
-  const supabaseCheck = setInterval(() => {
-    if (typeof window.supabase !== 'undefined') {
-      clearInterval(supabaseCheck);
-      supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-      console.log('✅ Supabase client ready!');
-      initApp();
-    }
-  }, 100);
-  
-  setTimeout(() => {
-    clearInterval(supabaseCheck);
-    console.error('❌ Supabase CDN timeout');
-  }, 5000);
-});
+document.addEventListener("DOMContentLoaded", () => {
+  console.log("DOM loaded - Firebase ready");
 
-function initApp() {
-  // Smooth scroll
+  // Smooth scrolling
   document.querySelectorAll('a[href^=\"#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
+    anchor.addEventListener("click", function(e) {
       e.preventDefault();
-      document.querySelector(this.getAttribute('href')).scrollIntoView({
-        behavior: 'smooth'
-      });
+      const target = document.querySelector(this.getAttribute("href"));
+      if (target) {
+        target.scrollIntoView({
+          behavior: "smooth"
+        });
+      }
     });
   });
 
-  // Contact form - SIMPLIFIED
-  const form = document.getElementById('contact-form');
+  // Contact form submission
+  const form = document.getElementById("contact-form");
   if (form) {
-    form.addEventListener('submit', async function(e) {
+    form.addEventListener("submit", async (e) => {
       e.preventDefault();
-      console.log('Form submit triggered');
-      
-      const name = document.getElementById('name').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const message = document.getElementById('message').value.trim();
-      
+
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const message = document.getElementById("message").value.trim();
+
       if (!name || !email || !message) {
-        alert('Please fill all fields!');
+        alert("Please fill all fields!");
         return;
       }
-      
-      const btn = form.querySelector('button');
+
+      const btn = form.querySelector("button");
       btn.disabled = true;
-      btn.textContent = 'Sending...';
-      
+      btn.textContent = "Sending... ⏳";
+
       try {
-        console.log('Attempting insert:', {name, email});
-        const { data, error } = await supabase
-          .from('contacts')
-          .insert([{
-            name: name,
-            email: email,
-            message: message
-          }]);
-          
-        if (error) throw error;
-        
-        console.log('SUCCESS DATA:', data);
+        const docRef = await db.collection("contacts").add({
+          name,
+          email,
+          message,
+          createdAt: firebase.firestore.FieldValue.serverTimestamp()
+        });
+        console.log("✅ SUCCESS:", docRef.id);
+        alert("✅ Message sent successfully!");
         form.reset();
-        alert(`✅ Success! "${name}" message saved to Supabase. Check Table Editor.`);
-      } catch (error) {
-        console.error('INSERT ERROR:', error);
-        alert(`❌ Error: ${error.message}`);
+      } catch (err) {
+        console.error("❌ ERROR:", err);
+        alert("❌ Error: " + err.message);
       } finally {
         btn.disabled = false;
-        btn.textContent = 'Send Message';
+        btn.textContent = "Send Message";
       }
     });
-    console.log('Form ready');
+    console.log("✅ Contact form ready");
   }
 
-  // Skills hover
-  document.querySelectorAll('.skill-item').forEach(item => {
-    item.addEventListener('mouseenter', () => item.style.transform = 'scale(1.05)');
-    item.addEventListener('mouseleave', () => item.style.transform = 'scale(1)');
+  // Skills hover effects (enhance CSS)
+  document.querySelectorAll(".skill-item").forEach(item => {
+    item.addEventListener("mouseenter", () => {
+      item.style.transform = "scale(1.1)";
+      item.style.boxShadow = "0 0 15px #fff, 0 0 30px #ff00ff";
+    });
+    item.addEventListener("mouseleave", () => {
+      item.style.transform = "scale(1)";
+      item.style.boxShadow = "none";
+    });
   });
 
-  console.log('🎉 App initialized!');
-}
-
-// Polyfill for older browsers
-if (!window.supabase) {
-  console.warn('Supabase CDN not loaded - check index.html script tag');
-}
+  console.log("🎉 Portfolio fully initialized with Firebase!");
+});

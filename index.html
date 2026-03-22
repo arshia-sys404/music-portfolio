@@ -2,83 +2,52 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <title>Arshia Libu Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Arshia Libu - BCA Cybersecurity Portfolio</title>
   <link rel="stylesheet" href="style.css">
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
-  <!-- Navigation -->
-  <nav class="neon-nav">
-    <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#education">Education</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
 
-  <!-- Section 1: Home -->
-  <section id="home" class="neon-section">
-    <div class="content">
-      <h1>Arshia Libu</h1>
-      <p>Roll No: 25BCYC16</p>
-      <p>Kristu Jayanti University</p>
-      <p>BCA Cybersecurity</p>
-    </div>
+  <!-- Header / Personal Info -->
+  <section id="personal-info" class="section neon-outline">
+    <h1>Arshia Libu</h1>
+    <p>Roll No: 25BCYC16</p>
+    <p>Kristu Jayanti University</p>
   </section>
 
-  <!-- Section 2: Education -->
-  <section id="education" class="neon-section">
-    <div class="content">
-      <h2>Education</h2>
-      <div class="edu-item">
-        <h3>High School</h3>
-        <p>India International School</p>
-      </div>
-      <div class="edu-item">
-        <h3>University</h3>
-        <p>Kristu Jayanti University</p>
-      </div>
-    </div>
+  <!-- Education Section -->
+  <section id="education" class="section neon-outline">
+    <h2>Education</h2>
+    <p>High School: India International School</p>
+    <p>University: Kristu Jayanti University</p>
   </section>
 
-  <!-- Section 3: Skills -->
-  <section id="skills" class="neon-section">
-    <div class="content">
-      <h2>Skills</h2>
-      <div class="skills-grid">
-        <div class="skill-item">Python</div>
-        <div class="skill-item">C</div>
-        <div class="skill-item">RDBMS</div>
-        <div class="skill-item">Digital Engineering</div>
-      </div>
-    </div>
+  <!-- Skills Section -->
+  <section id="skills" class="section neon-outline">
+    <h2>Skills</h2>
+    <div class="skill-item">Python</div>
+    <div class="skill-item">C</div>
+    <div class="skill-item">RDBMS</div>
+    <div class="skill-item">Digital Engineering</div>
   </section>
 
-  <!-- Section 4: Contact -->
-  <section id="contact" class="neon-section">
-    <div class="content">
-      <h2>Contact</h2>
-      <form id="contact-form">
-        <input type="text" id="name" placeholder="Name" required>
-        <input type="email" id="email" placeholder="Email" required>
-        <textarea id="message" placeholder="Message" required></textarea>
-        <button type="submit">Send Message</button>
-      </form>
-      <div id="form-feedback"></div>
-    </div>
+  <!-- Contact Section -->
+  <section id="contact" class="section neon-outline">
+    <h2>Contact Me</h2>
+    <form id="contact-form">
+      <input type="text" id="name" placeholder="Name" required><br>
+      <input type="email" id="email" placeholder="Email" required><br>
+      <textarea id="message" placeholder="Message" required></textarea><br>
+      <button type="submit">Send Message</button>
+    </form>
   </section>
 
-  <!-- Feedback Popup Modal -->
-  <div id="feedback-modal" class="modal hidden">
-    <div class="modal-content">
-      <span class="close-btn">&times;</span>
-      <div id="modal-icon">✅</div>
-      <p id="modal-text"></p>
-    </div>
-  </div>
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
 
-  <script src="script.js"></script>
+  <!-- Custom JS -->
+  <script src="script.js" defer></script>
+
 </body>
 </html>
